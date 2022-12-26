@@ -5,15 +5,18 @@
 </head>
 <body>
     <div>
-    <form action="{{ route('room.leave_room') }}" method="post">
+    <form action="{{ route('room.entry') }}" method="post">
         <div>
         <input type="text" name="room_name" placeholder="ルーム名を入力">
         </div>
         <div>
-        <input type="text" name="room_leave_user" placeholder="ユーザー名を入力してください">
+        <input type="text" name="room_password" placeholder="パスワード">
+        </div>
+        <div>
+        <input type="text" name="room_entry_user" placeholder="ユーザー名を入力してください">
         </div>
         @csrf
-        <button type="submit">退出</button>
+        <button type="submit">入室</button>
     </form>
     </div>
 </body>

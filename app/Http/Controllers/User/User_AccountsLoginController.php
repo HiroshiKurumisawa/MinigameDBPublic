@@ -18,17 +18,20 @@ class User_AccountsLoginController extends Controller
     public function __invoke(User_AccountsLoginRequest $request)
     {
         $validator = $request->getValidator();
+        $name = $_POST["user_name"];
+        $password = $_POST["password"];
+        $user_accountName=User_Accounts::where('user_name', $name)->first();
+        $user_accountPass=User_Accounts::where('user_name', $name)->value('pass_hash');
         $message;
         if($validator->fails())
         {
-            $message = 1;
+            if(($user_accountName!=null)&&($user_accountPass!=$password)){$message = 2;}
+            else if(($user_accountName==null)&&($user_accountPass!=$password)){$message = 4;}
+            else{$message = 1;}
             $user_account = "error";
         }
         else
-        {
-            $name = $_POST["user_name"];
-            $password = $_POST["password"];
-            
+        {           
             $user_account = User_Accounts::where('user_name', $name)->where('pass_hash', $password)->where('connection_status', 0)->first();
             if($user_account != null)
             {
@@ -40,7 +43,9 @@ class User_AccountsLoginController extends Controller
             }
             else
             {
-                $message = 2;
+                if(($user_accountName!=null)&&($user_accountPass!=$password)){$message = 2;}
+                else if(($user_accountName==null)&&($user_accountPass!=$password)){$message = 4;}
+                else{$message = 3;}
                 $user_account = "error";
             }
         }
