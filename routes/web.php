@@ -18,12 +18,12 @@ use App\Http\Controllers\Room;
 Route::get('/', function () {
     return view('welcome');
 });
-//テスト用
-Route::get('/user', \App\Http\Controllers\User\IndexController::class)
-->name('user.index');
-Route::get('/room', \App\Http\Controllers\Room\IndexController::class)
-->name('room.index');
-//
+// //テスト用
+// Route::get('/user', \App\Http\Controllers\User\IndexController::class)
+// ->name('user.index');
+// Route::get('/room', \App\Http\Controllers\Room\IndexController::class)
+// ->name('room.index');
+// //
 
 Route::post('/user/account/create', \App\Http\Controllers\User\User_AccountsCreateController::class)
 ->name('user_account.create');
