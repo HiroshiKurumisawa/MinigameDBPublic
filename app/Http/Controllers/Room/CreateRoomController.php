@@ -32,6 +32,7 @@ class CreateRoomController extends Controller
             $roomPassword = $_POST["room_password"];
             $roomMaxUsers = $_POST["room_max_users"];
             $roomHostUser = $_POST["room_host_user"];
+            $roomGameRule = $_POST["room_game_rule"];
 
             $room_addition = new Room_Settings();
             $room_addition->create([
@@ -44,6 +45,7 @@ class CreateRoomController extends Controller
                 'ready_status_host' => false,
                 'ready_status_entry'=> false,
                 'game_status' => false,
+                'game_rule' => $roomGameRule,
             ]);
             $nowDoneRoom = Room_Settings::where('room_name', $roomName)->first();
             $message = 0;
