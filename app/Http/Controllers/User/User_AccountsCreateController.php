@@ -89,6 +89,7 @@ class User_AccountsCreateController extends Controller
                 'pass_hash' => $password,
                 'last_login' => now(),
                 'connection_status' => false,
+                'point' => '0'
             ]);
             $message = 0;
         }

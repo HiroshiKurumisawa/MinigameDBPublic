@@ -14,5 +14,5 @@ class User_Accounts extends Model
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
-    protected $fillable = ['login_id', 'user_name', 'pass_hash', 'last_login', 'connection_status',];
+    protected $fillable = ['login_id', 'user_name', 'pass_hash', 'last_login', 'connection_status','point',];
 }

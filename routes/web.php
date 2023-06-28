@@ -67,6 +67,8 @@ Route::post('/game/putStone_game', \App\Http\Controllers\Game\PutStoneController
 Route::post('/game/surrender_game', \App\Http\Controllers\Game\SurrenderController::class)
 ->name('game.surrender_game');
 
-// 一時的
 Route::post('/game/end_game', \App\Http\Controllers\Game\DeleteRoomTest::class)
 ->name('game.end_game');
+
+Route::post('/ranking/ranking_view', \App\Http\Controllers\Ranking\RankingViewController::class)
+->name('rankig.ranking_view');
