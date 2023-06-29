@@ -72,3 +72,6 @@ Route::post('/game/end_game', \App\Http\Controllers\Game\DeleteRoomTest::class)
 
 Route::post('/ranking/ranking_view', \App\Http\Controllers\Ranking\RankingViewController::class)
 ->name('rankig.ranking_view');
+
+Route::post('/ranking/ranking_point_update', \App\Http\Controllers\Ranking\UserPointUpdateController::class)
+->name('rankig.ranking_point_update');
